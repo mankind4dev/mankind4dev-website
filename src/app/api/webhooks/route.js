@@ -76,7 +76,7 @@ export async function POST(req) {
       );
       if (user && eventType === "user.created") {
         try {
-          await clerkClient.users.updateUsermetadata(id, {
+          await clerkClient.users.updateUserMetadata(id, {
             publicMetadata: {
               userMongoId: user._id,
               isAdmin: user.isAdmin,
@@ -99,7 +99,7 @@ export async function POST(req) {
     } catch (error) {
       console.log("Error deleting user:", error);
     }
-    return new Response("Error occur", { status: 400 });
+    return new Response("Error occured", { status: 400 });
   }
 
   return new Response("Webhook received", { status: 200 });
